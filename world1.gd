@@ -3,8 +3,8 @@ var enemy = preload("res://enemy1.tscn")
 var enemylevel2 = preload("res://enemylevel2.tscn")
 signal playerzero
 signal gamestart
-var playerhealth =100.0
-var score 
+var playerhealth:float =100.0
+var score:int
 
 func _on_enemyspawntime_timeout():
 	var enemyInstance = enemy.instance()
@@ -17,7 +17,7 @@ func _on_enemyspawntime_timeout():
 
 
 
-func _on_player1_area_entered(_area):
+func _on_player1_area_entered(_area:Area):
 	playerhealth =playerhealth-34
 	$Hud/HealthLabel.text= str(playerhealth)
 	if(playerhealth <=0):
