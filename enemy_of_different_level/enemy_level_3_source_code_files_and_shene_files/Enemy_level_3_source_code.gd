@@ -31,3 +31,7 @@ func _physics_process(delta: float) -> void:
 	position += object
 func on_firerate_interval_timer_timeout()->void:
 	print("signal_timer_fired")
+	var bullets:Area2D = bullet_scene_object.instance()
+	bullets.position = position
+	bullets.bulletspeed =700
+	get_tree().get_root().add_child(bullets)
