@@ -1,13 +1,14 @@
 extends Area2D
 #static typeing is preferred
 #dynamiclly typed code will not be expected
-
+#costom signals
+signal healthzero
 #loads bullet into the enemy level 3 scene
 const bullet_scene_object=preload("res://bullet.tscn")
 #bullet object speed
 const bulletspeed:int = 100
 #enemy moving speed
-const enemy_moving_speed:int=100
+const enemy_moving_speed:int=80
 #enemy level 3 health changing value will change the enemy health
 var enemyhealth:int =100
 
@@ -32,8 +33,9 @@ func _ready() -> void:
 	#connecting the signals 
 	bullet_interval_timer_type_of_node_timer.connect("timeout",self,"on_firerate_interval_timer_timeout")
 	visbility_notifier_2d.connect("screen_exited",self,"on_visibilty_notifier_screen_exit")
-	area_the_main_body.connect("area_entered",self,"_on_Enemy_level_3_area_entered"[area:Area2d])
-	
+	area_the_main_body.connect("area_entered",self,"_on_Enemy_level_3_area_entered")
+	#connecting costom signals
+	area_the_main_body.connect("healthzero",self,"health_zero_function")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -56,7 +58,7 @@ func on_firerate_interval_timer_timeout()->void:
 	#this line just works
 	bullets.position = bullet_spwan_position_type_of_node_position_2d.global_position
 	
-	bullets.bulletspeed =700
+	bullets.bulletspeed =350
 	#adds_the_bullet_object_into _game_scene
 	get_tree().get_root().add_child(bullets)
 func on_visibilty_notifier_screen_exit()->void:
@@ -65,6 +67,10 @@ func on_visibilty_notifier_screen_exit()->void:
 	queue_free()
 
 
-func _on_Enemy_level_3_area_entered(area: Area2D) -> void:
+func _on_Enemy_level_3_area_entered(_area: Area2D) -> void:
 	print("connected")
-	area.queue_free()
+	enemyhealth=enemyhealth-100
+	if enemyhealth<=0:
+		emit_signal("healthzero")
+func health_zero_function()->void:
+	queue_free()

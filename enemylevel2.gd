@@ -1,6 +1,6 @@
 extends Area2D
 var bulletspeed:int = 100
-var enemyhealth:int =100
+var enemyhealth:int =200
 signal healthzero
 var bullet = preload("res://bullet.tscn")
 onready var animplayer:AnimationPlayer= $AnimationPlayer

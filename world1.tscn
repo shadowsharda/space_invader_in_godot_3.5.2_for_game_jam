@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world1.gd" type="Script" id=1]
 [ext_resource path="res://player1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://hudcanvas layer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/Ultra Violet Galactic Background Free Vector.jpg" type="Texture" id=4]
-[ext_resource path="res://enemy_of_different_level/enemy_level_3_source_code_files_and_shene_files/Enemy_level_3.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -49,8 +48,8 @@ wait_time = 2.5
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="Enemy_level_3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 364, -145 )
+[node name="enemylevel3time" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="gamestart" from="." to="player1" method="_on_world1node_gamestart"]
 [connection signal="playerzero" from="." to="player1" method="_on_world1node_playerzero"]

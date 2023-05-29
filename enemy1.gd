@@ -1,7 +1,7 @@
 extends Area2D
 
 var bulletspeed = 100
-var enemyhealth =100
+var enemyhealth =150
 var score =0
 signal healthzero
 signal playerscore

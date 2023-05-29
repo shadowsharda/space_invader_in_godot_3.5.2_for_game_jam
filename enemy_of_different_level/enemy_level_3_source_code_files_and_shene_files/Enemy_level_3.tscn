@@ -20,7 +20,7 @@ position = Vector2( 0, -12 )
 shape = SubResource( 1 )
 
 [node name="bullet_intervel_timer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.5
 
 [node name="bullet_spwan_position_position2d" type="Position2D" parent="."]
 position = Vector2( 1, 70 )
