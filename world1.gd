@@ -34,6 +34,7 @@ func _on_player1_area_entered(_area:Area):
 		$Hud/HealthLabel.text = str(100)
 		$enemyspawntime.stop()
 		$enemylevel2time.stop()
+		enemy_level3_spawn_timer.stop()
 		$ScoreTimer.stop()
 		$player1/CollisionShape2D.set_deferred("disabled",true)
 
@@ -64,6 +65,7 @@ func _on_enemy_level3_spawntimer_timeout()->void:
 	var enemy_level_spawn_location:PathFollow2D=$Path2D/PathFollow2D
 	enemy_instance_level3.position=enemy_level_spawn_location.position
 	enemy_level_spawn_location.unit_offset=randf()
+	enemy_instance_level3.connect("healthzero",self,"scoremeter2")
 	get_tree().get_root().add_child(enemy_instance_level3)
 func scoremeter2():
 	score =score+4
