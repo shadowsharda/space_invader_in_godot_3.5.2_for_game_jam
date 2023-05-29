@@ -24,3 +24,5 @@ wait_time = 0.2
 
 [node name="bullet_spwan_position_position2d" type="Position2D" parent="."]
 position = Vector2( 1, 70 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
