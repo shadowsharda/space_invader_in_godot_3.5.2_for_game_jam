@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://fonts/player1.png" type="Texture" id=1]
+[ext_resource path="res://fonts/enemy_images_models/extra_models/Sprite-0003.png" type="Texture" id=1]
 [ext_resource path="res://player1.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -11,9 +11,9 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1.5, 1 )
-position = Vector2( 1, 25 )
-rotation = -1.5708
-scale = Vector2( 0.723759, -0.877765 )
+position = Vector2( 1.33484, 33.5006 )
+rotation = 3.14159
+scale = Vector2( 2.08899, 2.57009 )
 texture = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -21,7 +21,7 @@ process_mode = 0
 wait_time = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, 43.5 )
+position = Vector2( 1, 39 )
 shape = SubResource( 1 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
