@@ -30,6 +30,7 @@ position = Vector2( 34, 51 )
 position = Vector2( 0, 50 )
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color( 0.0784314, 1, 0, 1 )
 margin_left = -68.0
 margin_top = -65.0
 margin_right = 69.0
