@@ -29,5 +29,10 @@ func _physics_process(delta: float) -> void:
 	distance_calculation=distance_calculation+(enemy_moving_speed*delta)
 	if distance_calculation>=boss_must_travelled_before_starting_sideways_movement:
 		boss_stop_moving=true
+		#activating side way_movement
+		boss_start_moving_sideways=true
+	if boss_start_moving_sideways==true:
+		var boss_moving_side_ways_in_x_axis:Vector2=Vector2(enemy_moving_speed*delta,0)
+		self.position=self.position+boss_moving_side_ways_in_x_axis
 		
 	#print(distance_calculation)
