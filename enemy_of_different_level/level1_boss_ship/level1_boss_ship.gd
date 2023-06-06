@@ -4,9 +4,10 @@ const enemy_moving_speed:float=50.0
 const boss_must_travelled_before_starting_sideways_movement:int=150
 
 #store calculated distance
-var distance_calculation:float=0
+var distance_calculation:float=0.0
+var side_ways_distance_calculation:float=0.0
 
-
+var plus_to_minus_changer:int=-1
 
 #boss health
 var health: int = 100
@@ -32,11 +33,15 @@ func _physics_process(delta: float) -> void:
 		#activating side way_movement
 		boss_start_moving_sideways=true
 	if boss_start_moving_sideways==true:
-		distance_calculation.delete()
-		var boss_moving_side_ways_in_x_axis:Vector2=Vector2(enemy_moving_speed*delta,0)
+		distance_calculation=0
+
+		var boss_moving_side_ways_in_x_axis:Vector2=Vector2(enemy_moving_speed*delta*plus_to_minus_changer,0)
 		#can also write position=position+boss_moving_side_ways_in_x_axis
 		#writting like this so that people can easily understand
 		self.position=self.position+boss_moving_side_ways_in_x_axis
-		distance_calculation+=(enemy_moving_speed*delta)
-		
+		side_ways_distance_calculation+=(enemy_moving_speed*delta)
+		if side_ways_distance_calculation>=boss_must_travelled_before_starting_sideways_movement:
+			#self.position=self.position+(boss_moving_side_ways_in_x_axis*-1)
+			plus_to_minus_changer=1
 		print(distance_calculation)
+		print(side_ways_distance_calculation)
