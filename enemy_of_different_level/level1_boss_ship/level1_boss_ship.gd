@@ -32,7 +32,11 @@ func _physics_process(delta: float) -> void:
 		#activating side way_movement
 		boss_start_moving_sideways=true
 	if boss_start_moving_sideways==true:
+		distance_calculation.delete()
 		var boss_moving_side_ways_in_x_axis:Vector2=Vector2(enemy_moving_speed*delta,0)
+		#can also write position=position+boss_moving_side_ways_in_x_axis
+		#writting like this so that people can easily understand
 		self.position=self.position+boss_moving_side_ways_in_x_axis
+		distance_calculation+=(enemy_moving_speed*delta)
 		
-	#print(distance_calculation)
+		print(distance_calculation)
