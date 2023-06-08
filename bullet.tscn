@@ -4,7 +4,7 @@
 [ext_resource path="res://bullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6.99336, 19.4639 )
+extents = Vector2( 3.99992, 19.4639 )
 
 [node name="bullet" type="Area2D"]
 priority = 2.0
@@ -12,12 +12,10 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 1.5, 1, 1, 1 )
-position = Vector2( -9.53674e-07, -4.3 )
-scale = Vector2( 0.213964, 0.19375 )
+scale = Vector2( 0.215, 0.192374 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.00339174, -5.47731 )
 rotation = -0.00648969
 shape = SubResource( 1 )
 

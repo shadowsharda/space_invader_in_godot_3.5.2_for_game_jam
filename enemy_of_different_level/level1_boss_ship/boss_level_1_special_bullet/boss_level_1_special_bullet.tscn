@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://enemy_of_different_level/level1_boss_ship/boss_level_1_special_bullet/boss_level_1_special_bullet.gd" type="Script" id=1]
+[ext_resource path="res://fonts/bullet141.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Area2D" type="Area2D"]
+[node name="boss_level_1_special_bullet" type="Area2D" groups=["boss_level_1_special_bullet"]]
+position = Vector2( 75, 33 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
