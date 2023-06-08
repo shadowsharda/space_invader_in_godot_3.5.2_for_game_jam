@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name bullet_inheriting_area2d
 var bulletspeed:int = -800
 
 
@@ -7,7 +7,7 @@ var bulletspeed:int = -800
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_physics_process(true)
-	
+	set_process(false)
 func _physics_process(delta):
 	var object =Vector2(0,bulletspeed*delta)
 	position += object

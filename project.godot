@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "bullet_inheriting_area2d",
+"language": "GDScript",
+"path": "res://bullet.gd"
+} ]
+_global_script_class_icons={
+"bullet_inheriting_area2d": ""
+}
+
 [application]
 
 config/name="Space Invaders"
