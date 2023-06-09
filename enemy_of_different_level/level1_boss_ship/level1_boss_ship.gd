@@ -2,18 +2,21 @@ extends Area2D
 #value can be changed from editor not avilable as export variable to save pc memory
 const enemy_moving_speed:float=50.0
 const boss_must_travelled_before_starting_sideways_movement:int=150
-
+#boss health
+var health: int = 100
 #store calculated distance
 var distance_calculation:float=0.0
 var side_ways_distance_calculation:float=0.0
 
 var plus_to_minus_changer:int=1
 
-#boss health
-var health: int = 100
+
 # var b: String = "text"
 var boss_stop_moving:bool=false
 var boss_start_moving_sideways:bool=false
+#loading_boss_level_1_special_bullet
+const boss_level_1_bullet=preload("res://enemy_of_different_level/level1_boss_ship/boss_level_1_special_bullet/boss_level_1_special_bullet.tscn")
+onready var firerateTimer:Timer=$firerateTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
